@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>GulpJs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+	<link href="assets/img/favicon.png" rel="icon" type="image/png">
+</head>
+<body class="impress-not-supported">
+	<div class="fallback-message">
+		<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+		<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+	</div>
+
+	<div id="impress" data-autoplay="0">
+		<!-- SPLASH SLIDE -->
+		<div id="spalsh" class="step text-center" data-x="-2000" data-y="-9500" data-scale="7">
+			<img class="logo-text" src="./assets/img/logo-text.png" alt="gulp js text">
+			<img class="logo" src="./assets/img/logo.png" alt="gulp js">
+			<div class="intro-text">
+				Automate and enhance your workflow
+			</div>
+		</div>
+
+		<!-- INTRO SLIDE -->
+		<div id="intro" class="step slide text-center" data-x="-1000" data-y="-1500">
+			<p>
+				<span class="fs-2">Gulp</span> یک build tools هست که سرعت کار شما را برای طراحی Front end بیشتر میکنه
+			</p>
+		</div>
+
+		<!-- WHY SLIDE -->
+		<div id="why" class="step slide text-center" data-x="0" data-y="-1500">
+			<div class="fs-3 fw-700">
+				چگونه؟
+			</div>
+			<div class="fs-1 fw-500 pat-90">
+				با جلوگیری از تکرار کارهای روتین
+			</div>
+		</div>
+
+		<!--WHAT SLIDE  -->
+		<div id="what" class="step slide text-center" data-x="1000" data-y="-1500">
+			<div class="fs-2 fw-700">
+				چه کارهایی؟
+			</div>
+			<ul class="pat-60 pal-100">
+				<li>Compilation (Less, Sass , CoffieScript, ...)</li>
+				<li>Linting</li>
+				<li>Unit testing</li>
+				<li>Minification (JS, CSS, HTML)</li>
+				<li>Concatenation</li>
+				<li>...</li>
+			</ul>
+		</div>
+
+		<!-- BUILD TOOLS SLIDE -->
+		<div id="build-tools" class="step text-center" data-x="6000" data-y="-2000" data-rotate="90" data-scale="1">
+			<div class="fs-2 fw-700">
+				build tools
+			</div>
+			<ul class="fw-500 pal-100 pat-60">
+				<li><a href="http://brunch.io/">Brunch</a></li>
+				<li><a href="http://gruntjs.com/">Grunt</a></li>
+				<li><a href="https://gulpjs.com/">Gulp.js</a></li>
+				<li><a href="https://github.com/broccolijs/broccoli">Broccoli</a></li>
+				<li><a href="https://webpack.js.org">webpack</a></li>
+			</ul>
+		</div>
+
+		<!-- FEATURES SLIDE -->
+		<div id="features" class="step slide text-center" data-x="6000" data-y="2500" data-rotate="90" data-scale="4">
+			<div class="fs-2 fw-700">
+				چرا Gulp.js؟
+			</div>
+			<ul class="pat-60 pal-100">
+				<li>Small API surface</li>
+				<li>Stream-based build system</li>
+				<li>Code over configuration</li>
+				<li>Runs with maximum concurrency by default</li>
+			</ul>
+		</div>
+
+		<!-- API SLIDE -->
+		<div id="api" class="step slide" data-x="6000" data-y="6500" data-rotate="90" data-scale="4">
+			<div class="fs-2 fw-700 text-center">
+				The Gulp api
+			</div>
+			<ol class="pat-60 pal-100 text-center">
+				<li>gulp.task(name [ , deps], fn)</li>
+				<li>gulp.src(globs)</li>
+				<li>gulp.dest(path)</li>
+				<li>gulp.watch(glob [, opts], tasks)</li>
+			</ol>
+		</div>
+
+		<!-- GULP TASK SLIDE -->
+		<div id="gulp-task" class="step slide pat-60" data-x="10000" data-y="15000" data-rotate="180" data-scale="8">
+			<div class="fs-2 fw-700 text-center">
+				gulp.task(name[, deps], fn)
+			</div>
+
+<div class="code-container mat-40">
+	<pre><code class="javascript">gulp.task('somename', function() {
+	// Do stuff
+});</code></pre>
+</div>
+
+<div class="code-container mat-30">
+	<pre><code class="javascript">gulp.task('somename',['test', 'task2'], function() {
+	// Do stuff
+});</code></pre>
+</div>
+
+<div class="code-container mat-30">
+	<pre><code class="javascript">gulp.task('somename',['test', 'task2']);</code></pre>
+</div>
+
+
+<div class="code-container mat-30">
+	<pre><code class="bash">> gulp somename</code></pre>
+</div>
+		</div>
+
+		<!-- GULP SRC SLIDE -->
+		<div id="gulp-src" class="step slide pat-60" data-x="2000" data-y="15000" data-rotate="180" data-scale="8">
+				<div class="fs-2 fw-700 text-center">
+					gulp.src(glob)
+				</div>
+	
+<div class="code-container mat-40">
+	<pre><code class="javascript">gulp.src('assets/js/*.js')
+	.pipe(jshint())</code></pre>
+</div>
+
+<div class="code-container mat-30">
+	<pre><code class="javascript">gulp.src([
+		'assets/style/**/*.scss',
+		'assets/style/**/*.sass',
+		'!assets/style/**/_*.sass', // ignore files
+	])
+	.pipe(sass())</code></pre>
+</div>
+			</div>
+
+			<!-- GULP DEST SLIDE -->
+			<div id="gulp-dest" class="step slide pat-60" data-x="-6000" data-y="15000" data-rotate="180" data-scale="8">
+					<div class="fs-2 fw-700 text-center">
+						gulp.dest(folder)
+					</div>
+		
+	<div class="code-container mat-40">
+		<pre><code class="javascript">gulp.src([
+		'src/assets/css/*.scss',
+		'!src/assets/css/_*.scss'
+	])
+	.pipe(sass())
+	.pipe(autoprefixer())
+	.pipe(gulp.dest('dist/assets/css'))</code></pre>
+	</div>
+			</div>
+
+			<!-- GULP WATCH SLIDE -->
+			<div id="gulp-watch" class="step slide pat-60" data-x="-14000" data-y="15000" data-rotate="180" data-scale="8">
+				<div class="fs-2 fw-700 text-center">
+					gulp.watch(glob[, opts], tasks)
+				</div>
+		
+	<div class="code-container mat-40">
+		<pre><code class="javascript">gulp.watch('app/**/*.js', ['test','reload']);</code></pre>
+	</div>
+	<div class="code-container mat-40">
+<pre><code class="javascript">gulp.watch([
+	'assets/style/**/*.scss',
+	'assets/style/**/*.sass',
+	'!assets/style/**/_*.sass', // ignore files
+], ['style','reload']);</code></pre>
+	</div>
+
+			</div>
+
+		<!-- TITLE SLIDE -->
+		<div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+			<span class="try">then you should try</span>
+			<h1 class="fs-6">Gulp.js</h1>
+		</div>
+
+		<!-- SLIDE INSTALL -->
+		<div id="install" class="step" data-x="400" data-y="3000" data-rotate="90" data-scale="5">
+			<p><span class="fw-700">چطور و کجا استفادش کنیم؟</span><br>
+			برای استفاده از Gulp ابتدا باید <a href="https://nodejs.org/">NodeJs</a> بر روی سیستم شما نصب شده باشد.<br>
+			سپس gulp-cli را نصب کنید
+			<div class="code-container mat-10 mab-10">
+				<pre><code class="bash">> sudo npm install gulp-cli -g</code></pre>
+			</div>
+			سپس در دایرکتوری که فایل package.json  وجود دارد دستورات زیر را اجرا کنید
+			<div class="code-container mat-10">
+				<pre><code class="bash">> npm install gulp -D
+> touch gulpfile.js</code></pre>
+			</div>
+		</div>
+
+
+		<!-- BIG SLIDE -->
+		<div id="big" class="step text-center" data-x="3500" data-y="2100" data-rotate="180" data-scale="3">
+			<p>let's try it in <b class="fs-5">Real World</b></p>
+		</div>
+
+		<!-- SASS SLIDE -->
+		<div id="sass" class="step" data-x="3400" data-y="1500" data-z="-3000" data-rotate="300" data-scale="1">
+			<p>کامپایل کردن فایل های Sass</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var gulp = require('gulp');
+var sass = require('gulp-sass');
+
+gulp.task('css', function(){
+	return gulp.src('src/assets/*.scss')
+		.pipe(sass())
+		.pipe(gulp.dest('build/assets/css'))
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- SOURCEMAP SLIDE -->
+		<div id="sourcemaps" class="step" data-x="3400" data-y="1500" data-z="-5000" data-rotate="300" data-scale="1">
+			<p>sourcemaps</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('css', function(){
+	return gulp.src('src/assets/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('build/assets/css'))
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- AUTOPREFIXER SLIDE -->
+		<div id="autoprefixer" class="step" data-x="3400" data-y="1500" data-z="-7000" data-rotate="300" data-scale="1">
+			<p>autoprefixer</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+
+gulp.task('css', function(){
+	return gulp.src('src/assets/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(autoprefixer({
+			browsers: ['last 5 versions', '> 5%'],
+			cascade: false
+		}))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('build/assets/css'))
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- CSS MINIFY SLIDE -->
+		<div id="minifyCSS" class="step" data-x="3400" data-y="1500" data-z="-9000" data-rotate="300" data-scale="1">
+			<p>minifyCSS</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var gulp = require('gulp');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var cssmin = require('gulp-cssmin');
+
+gulp.task('css', function(){
+	return gulp.src('src/assets/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(autoprefixer({
+			browsers: ['last 5 versions', '> 5%'],
+			cascade: false
+		}))
+		.pipe(cssmin())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('build/assets/css'))
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- CONCAT SLIDE -->
+		<div id="concat" class="step" data-x="8400" data-y="1500" data-z="-9000" data-rotate="300" data-scale="1">
+			<p>js concat & Babel</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var gulp = require('gulp');
+var sourcemaps = require('gulp-sourcemaps');
+var concat = require('gulp-concat');
+var babel = require('gulp-babel');
+
+gulp.task('js', function(){
+    return gulp.src('src/assets/js/*.js')
+        .pipe(sourcemaps.init())
+		.pipe(concat('app.js'))
+		.pipe(babel({
+			presets: ['env']
+		}))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('build/assets/js'))
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- WATCH SLIDE -->
+		<div id="watch" class="step" data-x="8400" data-y="1500" data-z="-11000" data-rotate="300" data-scale="1">
+			<p>watch</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">gulp.task('watch', ['default'], function() {
+	gulp.watch([
+		'./src/**/*.scss'
+	], ['css']);
+
+	gulp.watch([
+		'./src/**/*.js'
+	], ['js']);
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- Browser-Syunc SLIDE -->
+		<div id="Browser-Syunc" class="step" data-x="8400" data-y="1500" data-z="-13000" data-rotate="300" data-scale="1">
+			<p>BrowserSyunc + GulpJs</p>
+			<div class="code-container with-btns mat-10">
+				<pre><code class="javascript">var browserSync = require('browser-sync').create();
+
+gulp.task('css', function(){
+	return gulp.src('src/assets/sass/*.scss')
+		.pipe(sass())
+		.pipe(gulp.dest('build/assets/css'))
+		.pipe(browserSync.stream())
+});
+
+gulp.task('serve', ['default'], function() {
+	browserSync.init({
+		server: "./build" // static server
+		// proxy: "localhost/wordpress" // dynamic server
+	});
+	gulp.watch("src/assets/sass/*.scss", ['css']);
+	gulp.watch("src/**/*.html", ['copy'])
+	.on('change', browserSync.reload);
+});</code></pre>
+			</div>
+		</div>
+
+		<!-- ABOUT SLIDE -->
+		<div id="about" class="step slide text-center" data-x="-1000" data-y="-1500">
+			<p>
+				<div class="fs-4 mat-80">Finished<br><span>:)</span></div>
+				<div class="mat-100 fw-80"><a href="https://t.me/hexboy">@hexboy</a></div>
+				<div class="mat-10 fw-100"><a class="site" href="https://hexboy.ir">www.hexboy.ir</a></div>
+			</p>
+		</div>
+
+	</div>
+	<div id="impress-toolbar"></div>
+	<script src="./assets/js/all.js"></script>
+</body>
+</html>
