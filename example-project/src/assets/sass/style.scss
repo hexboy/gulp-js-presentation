@@ -1,0 +1,18 @@
+@import 'root';
+@import 'texts';
+
+body {
+	background-color: #333333;
+	background: linear-gradient(45deg, red, blue);	
+	font-size: 72px;
+	font-weight: 700;
+	text-align: center;
+	padding-top: 400px;
+	height: 100vh;
+}
+
+@for $i from 1 through 10 {
+	.fs-#{$i} {
+		font-size: 1em * $i;
+	}
+}
