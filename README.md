@@ -1,7 +1,9 @@
 # gulp-js-presentation
 a html presentation about gulp
-
 ----
+
+## [Demo](https://htmlpreview.github.io/?https://github.com/hexboy/gulp-js-presentation/blob/master/dist/index.html)
+
 ## usage
 install npm packages
 
